@@ -1,0 +1,9 @@
+  Schema::create('meals', function(Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('status');
+            
+            // Meal can belong to exaclty one or zero categories
+            $table->foreign('category')->nullable();
+        });
