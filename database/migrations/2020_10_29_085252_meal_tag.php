@@ -13,10 +13,12 @@ class MealTag extends Migration
      */
     public function up()
     {
-        Schema::Create('meal_tag', function(Blueprint $table) {
-            $table->foreign('meals_id');
-            $table->foreign('tags_id');
+        Schema::create('meal_tag', function(Blueprint $table) {
+            $table->foreignId('meal_id')->constrained();
+            $table->foreignId('tag_id')->constrained();
+            $table->primary(['meal_id', 'tag_id']);
         });
+
     }
 
     /**

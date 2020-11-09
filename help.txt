@@ -1,0 +1,40 @@
+
+LIST OF TASKS
+
+	understand language translation
+	understand data insertion seeders and Fzaninotto faker
+	understand data validation
+	understand diff_time
+	understand dependency injection
+  understand pagination : https://laravel.com/docs/8.x/pagination
+  Conditional WHERE: https://laravel.com/docs/5.3/queries#conditional-clauses
+
+
+//change langauge on App lvl
+        App::setLocale('en');
+
+        $post = Post::first();
+        $myPost = $post->translate();
+        echo $myPost->content;
+        
+
+
+        
+        $data = [
+            'author' => 'PLSRADI',
+            'en' => ['title' => 'My first post', 'content' => 'Bread'],
+            'fr' => ['title' => 'Mon premier post', 'content' => 'baquette']
+          ];
+       
+        $newPost = Post::create($data);
+        echo $newPost->translate('fr')->content;
+        echo $newPost->translate('en')->content;
+
+
+THE EEEND JOS SAMO
+
+- datumi na kraju dal se mogu bolje prikazivat, cudan je format
+- maknut i dodat potrebne meta keyeve na api resourceima
+- sve otalo brijem funkcionira kak treba
+
+

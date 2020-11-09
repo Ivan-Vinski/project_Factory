@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MealIngredient extends Migration
+class Languages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class MealIngredient extends Migration
      */
     public function up()
     {
-        Schema::create('ingredients', function (Blueprint $table) {
-            $table->foregin('meals_id');
-            $table->foregin('ingredients_id');
+        Schema::create('languages', function (Blueprint $table) {
+            $table->id();
+            $table->string('locale')->unique();
         });
+
     }
 
     /**

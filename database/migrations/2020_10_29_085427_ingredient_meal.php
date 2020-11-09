@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Meals extends Migration
+class IngredientMeal extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class Meals extends Migration
      */
     public function up()
     {
-        
-        Schema::create('meals', function(Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('status');
-
-            // Meal can belong to exaclty one or zero categories
-            $table->foreign('category')->nullable();
+        Schema::create('ingredient_meal', function (Blueprint $table) {
+            $table->foreignId('meal_id')->constrained();
+            $table->foreignId('ingredient_id')->constrained();
+            $table->primary(['meal_id', 'ingredient_id']);
         });
 
     }
