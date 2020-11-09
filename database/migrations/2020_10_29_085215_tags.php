@@ -20,13 +20,9 @@ class Tags extends Migration
 
         Schema::create('tag_translations', function(Blueprint $table) {
             $table->id();
-            //$table->integer('post_id')->unsigned();
             $table->string('locale')->index(); // language
             $table->string('title');
             $table->unique(['tag_id', 'locale']);
-        
-            //$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
         });
 

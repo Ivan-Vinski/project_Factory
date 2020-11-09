@@ -29,8 +29,8 @@ class MealSeeder extends Seeder
             $updated_at = $faker->optional($weight = 0.3)->dateTimeBetween($created_at, 'now');
 
             /*
-             * It is assumed that meals with status 'deleted' cannot be updated
-             * Hence they could have only been deleted between 'updated_at' and 'now'
+             * It is assumed that meals with the status 'deleted' cannot be updated,
+             * hence they could have only been deleted between 'updated_at' and 'now'
              * or 'created_at' and 'now'
              */
             if ($updated_at == NULL) {
@@ -62,7 +62,7 @@ class MealSeeder extends Seeder
                  * 80% - have category
                  * 20% - will not have category
                  */
-                'category_id' => $faker->optional($weight = 0.8)->numberBetween(1, 10)
+                'category_id' => $faker->optional($weight = 0.8)->numberBetween(1, DB::table('categories')->count())
             ]);
 
             DB::table('meal_translations')->insert([

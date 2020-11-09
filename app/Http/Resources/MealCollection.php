@@ -13,10 +13,9 @@ class MealCollection extends ResourceCollection
      * @return array
      */
 
-    private $pagination;
     public function __construct($resource)
     {
-        $this->pagination = [
+        $this->meta = [
             'currentPage' => $resource->currentPage(),
             'totalItems' => $resource->total(),
             'itemsPerPage' => $resource->perPage(),
@@ -24,8 +23,8 @@ class MealCollection extends ResourceCollection
         ];
 
         $this->links = [
-            'prev' => $resource->nextPageUrl(),
-            'next' => $resource->previousPageUrl(),
+            'prev' => $resource->previousPageUrl(),
+            'next' => $resource->nextPageUrl(),
             'self' => $resource->url($resource->currentPage())
         ];
     
@@ -37,7 +36,7 @@ class MealCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'meta' => $this->pagination,
+            'meta' => $this->meta,
             'data' => $this->collection,
             'links' => $this->links
         ];

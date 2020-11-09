@@ -13,8 +13,6 @@ use App;
 
 class MealController extends Controller
 {
-
-    // this is the real deal
     public function index(GetMeals $request) {
         $perPage = ($request->get('per_page')) ? $request->get('per_page') : 1 ;
         $page = ($request->input('page')) ? $request->get('page') : 1;
@@ -61,8 +59,8 @@ class MealController extends Controller
                                             ->withPath($request->fullUrl()));
                                           
         }
-        
-        return $data->get();
-
+        else {
+            return $data->get();
+        }
     }
 }

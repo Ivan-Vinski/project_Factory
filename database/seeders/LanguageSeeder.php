@@ -16,7 +16,7 @@ class LanguageSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('App\Category');
-        // Controll languages here or we could tak them from App::locale
+        // Controll languages here or we could take them from App::locale
         $locales = ['hr', 'en', 'fr'];
 
         foreach($locales as $locale) {

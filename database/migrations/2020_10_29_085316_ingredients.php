@@ -13,11 +13,6 @@ class Ingredients extends Migration
      */
     public function up()
     {
-        /*
-        * M:N
-        * one ingredient can be in multiple meals
-        * one meal can have multiple ingredients
-       */
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
@@ -25,14 +20,10 @@ class Ingredients extends Migration
 
         Schema::create('ingredient_translations', function(Blueprint $table) {
             $table->id();
-            //$table->integer('post_id')->unsigned();
             $table->string('locale')->index(); // language
             $table->string('title');
 
             $table->unique(['ingredient_id', 'locale']);
-        
-            //$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-
             $table->foreignId('ingredient_id')->constrained()->onDelete('cascade');
         });
        

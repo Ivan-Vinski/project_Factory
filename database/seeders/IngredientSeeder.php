@@ -17,7 +17,7 @@ class IngredientSeeder extends Seeder
     {
         $faker = Faker::create('App\Ingredient');
         $counter = 1;
-        while ($counter <= 50) {
+        while ($counter <= 50) { // Create 50 ingredients
             $id = DB::table('ingredients')->insertGetId([
                 'slug' => 'IngredientSlugNo'.$counter
             ]);
