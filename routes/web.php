@@ -15,5 +15,3 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/meals', [MealController::class, 'index']);
-

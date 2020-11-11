@@ -23,13 +23,12 @@ class GetMeals extends FormRequest
      */
     public function rules()
     {
-        
         return [
             'perPage' => 'bail|nullable|numeric',
             'page' => 'bail|nullable|numeric',
-            'category' => 'bail|nullable|numeric',
-            'tags' => 'bail|nullable|array',
-            'with' => 'bail|nullable|array',
+            'category' => 'bail|nullable|string|max:5',
+            'tags' => 'bail|nullable|string',
+            'with' => 'bail|nullable|string',
             'lang' => 'bail|required|max:2|exists:languages,locale',
             'diff_time' => 'bail|nullable'
         ];

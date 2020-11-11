@@ -20,14 +20,12 @@ class Ingredients extends Migration
 
         Schema::create('ingredient_translations', function(Blueprint $table) {
             $table->id();
-            $table->string('locale')->index(); // language
+            $table->string('locale')->index();
             $table->string('title');
 
             $table->unique(['ingredient_id', 'locale']);
             $table->foreignId('ingredient_id')->constrained()->onDelete('cascade');
         });
-       
-       
     }
 
     /**
